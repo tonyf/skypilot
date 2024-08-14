@@ -95,7 +95,7 @@ def list_instances() -> Dict[str, Dict[str, Any]]:
 
 
 def launch(name: str, instance_type: str, region: str, disk_size: int,
-           ports: Optional[List[int]], image_name: Optional[str] = None) -> str:
+           ports: Optional[List[int]]) -> str:
     """Launches an instance with the given parameters.
 
     Converts the instance_type to the RunPod GPU name, finds the specs for the
@@ -114,7 +114,7 @@ def launch(name: str, instance_type: str, region: str, disk_size: int,
 
     new_instance = runpod.runpod.create_pod(
         name=name,
-        image_name=image_name or 'runpod/base:0.0.2',
+        image_name='dream3dml/pytorch:runpod',
         gpu_type_id=gpu_type,
         cloud_type=cloud_type,
         container_disk_in_gb=disk_size,
