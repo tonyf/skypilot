@@ -2,13 +2,10 @@
 import time
 from typing import Any, Dict, List, Optional
 
-from sky import sky_logging
-from sky import status_lib
+from sky import sky_logging, status_lib
 from sky.provision import common
 from sky.provision.runpod import utils
-from sky.utils import common_utils
-from sky.utils import resources_utils
-from sky.utils import ux_utils
+from sky.utils import common_utils, resources_utils, ux_utils
 
 POLL_INTERVAL = 5
 
@@ -86,7 +83,8 @@ def run_instances(region: str, cluster_name_on_cloud: str,
                 instance_type=config.node_config['InstanceType'],
                 region=region,
                 disk_size=config.node_config['DiskSize'],
-                ports=config.ports_to_open_on_launch)
+                ports=config.ports_to_open_on_launch,
+                image_name=config.node_config['ImageId'])
         except Exception as e:  # pylint: disable=broad-except
             logger.warning(f'run_instances error: {e}')
             raise

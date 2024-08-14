@@ -30,8 +30,6 @@ class RunPod(clouds.Cloud):
         clouds.CloudImplementationFeatures.MULTI_NODE:
             ('Multi-node not supported yet, as the interconnection among nodes '
              'are non-trivial on RunPod.'),
-        clouds.CloudImplementationFeatures.IMAGE_ID:
-            ('Specifying image ID is not supported on RunPod.'),
         clouds.CloudImplementationFeatures.DOCKER_IMAGE:
             (f'Docker image is currently not supported on {_REPR}.'),
         clouds.CloudImplementationFeatures.CUSTOM_DISK_TIER:
