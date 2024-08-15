@@ -114,7 +114,7 @@ def launch(name: str, instance_type: str, region: str, disk_size: int,
 
     new_instance = runpod.runpod.create_pod(
         name=name,
-        image_name='dream3dml/pytorch:runpod',
+        image_name='runpod/base:0.6.2-cuda12.1.0',
         gpu_type_id=gpu_type,
         cloud_type=cloud_type,
         container_disk_in_gb=disk_size,
